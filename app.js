@@ -15,6 +15,13 @@ window.addEventListener('load', () => {
                     throw new Error('Network response was not ok');
                 }
                 return response.text();
+            }).then(data => {
+               
+                results.innerHTML = data; 
             })
+            .catch(error => {
+                console.error('Error:', error);
+                results.innerHTML = "<span>Error fetching data. Please try again.</span>";
+            });
     });
 });
